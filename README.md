@@ -1,2 +1,2 @@
 # mc-totems-recreation
-Recreate the Minecraft totems with Javascript
+Recreate the Minecraft bedrock totems with Javascript
