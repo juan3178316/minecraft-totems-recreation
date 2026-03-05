@@ -30,7 +30,7 @@ world.beforeEvents.entityHurt.subscribe((totems) => {
 		}
 		else if(getTypeHand(player,"Offhand").hasItem() && dbTotems.includes(getTypeHand(player,"Offhand").typeId)) {
 			totems.cancel = true;
-			availableTotem = {name: String(player.name), hand: "offhand"};
+			availableTotem = {name: String(player.name), hand: "Offhand"};
 		}
 		else return;
 	}
