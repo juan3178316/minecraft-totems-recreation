@@ -2,7 +2,13 @@ import { system, world, EntityComponentTypes } from "@minecraft/server";
 
 const dbTotems = ["ct:apple_totem"]; // the totems namespaces
 
-var availableTotem = { name: undefined, hand: undefined }; // Storage the player name and the hand where is the totem.
+function loadTotem(name,hand) {
+	system.run(() => {
+		system.run(() => {
+			name != undefined ? new PlayerTotemEffect(name,hand) : 0; // Call the class in the next tick
+		});
+	});
+}
 
 function getTypeHand(player,hand) {
 	return player.getComponent(EntityComponentTypes.Equippable).getEquipmentSlot(hand);
@@ -15,10 +21,6 @@ function potionEffect(p,obj,c=0) {
 	} while (c<obj.length);
 }
 
-system.runInterval(() => {
-	availableTotem.name != undefined ? new PlayerTotemEffect(availableTotem.name,availableTotem.hand) : 0;
-}, 10);  // Each 10 ticks query if the variable is different to 'undefined'
-
 world.beforeEvents.entityHurt.subscribe((totems) => {
 	let player = totems.hurtEntity;
 	if(player.typeId !== "minecraft:player") return;
@@ -26,11 +28,11 @@ world.beforeEvents.entityHurt.subscribe((totems) => {
 		// Query if the damage that receive the player is greater than or equal to her current health
 		if(getTypeHand(player,"Mainhand").hasItem() && dbTotems.includes(getTypeHand(player,"Mainhand").typeId)) {
 			totems.cancel = true;
-			availableTotem = {name: String(player.name), hand: "Mainhand"};
+			loadTotem(String(player.name),"Mainhand");
 		}
 		else if(getTypeHand(player,"Offhand").hasItem() && dbTotems.includes(getTypeHand(player,"Offhand").typeId)) {
 			totems.cancel = true;
-			availableTotem = {name: String(player.name), hand: "Offhand"};
+			loadTotem(String(player.name),"Offhand");
 		}
 		else return;
 	}
@@ -40,7 +42,6 @@ class PlayerTotemEffect {
 	player;
 	itemHand;
 	constructor(namePlayer,hand) {
-		availableTotem = {name: undefined, hand: undefined}; // reset the variable
 		this.player = world.getPlayers({name:namePlayer})[0];
 		getTypeHand(this.player,hand).setItem(); // remove no stackeable totems
 
