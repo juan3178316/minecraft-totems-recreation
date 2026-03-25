@@ -1,6 +1,5 @@
 import { system, world, EntityComponentTypes } from "@minecraft/server";
 
-const dbTotems = ["ct:apple_totem"]; // the totems namespaces
 
 function loadTotem(name,hand) {
 	system.run(() => {
@@ -26,11 +25,11 @@ world.beforeEvents.entityHurt.subscribe((totems) => {
 	if(player.typeId !== "minecraft:player") return;
 	if(totems.damage >= player.getComponent(EntityComponentTypes.Health).currentValue) {
 		// Query if the damage that receive the player is greater than or equal to her current health
-		if(getTypeHand(player,"Mainhand").hasItem() && dbTotems.includes(getTypeHand(player,"Mainhand").typeId)) {
+		if(getTypeHand(player,"Mainhand").hasItem() && getTypeHand(player,"Mainhand").hasTag("ct:custom_totem")) {
 			totems.cancel = true;
 			loadTotem(String(player.name),"Mainhand");
 		}
-		else if(getTypeHand(player,"Offhand").hasItem() && dbTotems.includes(getTypeHand(player,"Offhand").typeId)) {
+		else if(getTypeHand(player,"Offhand").hasItem() && getTypeHand(player,"Offhand").hasTag("ct:custom_totem")) {
 			totems.cancel = true;
 			loadTotem(String(player.name),"Offhand");
 		}
