@@ -3,9 +3,7 @@ import { system, world, EntityComponentTypes } from "@minecraft/server";
 
 function loadTotem(name,hand) {
 	system.run(() => {
-		system.run(() => {
-			name != undefined ? new PlayerTotemEffect(name,hand) : 0; // Call the class in the next tick
-		});
+		new PlayerTotemEffect(name,hand);
 	});
 }
 
