@@ -40,12 +40,13 @@ class PlayerTotemEffect {
 	itemHand;
 	constructor(namePlayer,hand) {
 		this.player = world.getPlayers({name:namePlayer})[0];
-		getTypeHand(this.player,hand).setItem(); // remove no stackeable totems
+		this.itemHand = getTypeHand(this.player,hand);
+		this.itemHand.setItem(); // remove no stackeable totems
 
 		// The commented code its used for item with stacks greater than 1
-		//try { getTypeHand(this.player,hand).amount -= 1; }
+		//try { this.itemHand.amount -= 1; }
 		//catch(error) {
-			//getTypeHand(this.player,hand).setItem();
+			//this.itemHand.setItem();
 			//console.error(error); // unnecessary
 		//};
 		// Apply totem behavior
