@@ -5,7 +5,7 @@
 		"description": "add custom totems in Minecraft",
 		"uuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 		"version": [ 1, 0, 0 ],
-		"min_engine_version": [ 1, 26, 0 ]
+		"min_engine_version": [ 1, 26, 10 ]
 	},
 	"modules": [
     // ...
@@ -18,10 +18,10 @@
 		}
 	],
 	"dependencies": [
-    // The API beta is required
+    // The API beta isn't required now
 		{
 			"module_name": "@minecraft/server",
-			"version": "2.6.0-beta"
+			"version": "2.6.0"
 		}
 	],
 	"capabilities": [ "script_eval" ],
