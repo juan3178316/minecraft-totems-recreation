@@ -1,4 +1,4 @@
-import { system, world, EntityComponentTypes } from "@minecraft/server";
+import { system, world } from "@minecraft/server";
 
 
 function loadTotem(name,hand) {
@@ -8,7 +8,7 @@ function loadTotem(name,hand) {
 }
 
 function getTypeHand(player,hand) {
-	return player.getComponent(EntityComponentTypes.Equippable).getEquipmentSlot(hand);
+	return player.getComponent("minecraft:equippable").getEquipmentSlot(hand);
 }
 
 function potionEffect(p,obj,c=0) {
@@ -21,7 +21,7 @@ function potionEffect(p,obj,c=0) {
 world.beforeEvents.entityHurt.subscribe((totems) => {
 	let player = totems.hurtEntity;
 	if(player.typeId !== "minecraft:player") return;
-	if(totems.damage >= player.getComponent(EntityComponentTypes.Health).currentValue) {
+	if(totems.damage >= player.getComponent("minecraft:health").currentValue) {
 		// Query if the damage that receive the player is greater than or equal to her current health
 		if(getTypeHand(player,"Mainhand").hasItem() && getTypeHand(player,"Mainhand").hasTag("ct:custom_totem")) {
 			totems.cancel = true;
@@ -50,7 +50,8 @@ class PlayerTotemEffect {
 			//console.error(error); // unnecessary
 		//};
 		// Apply totem behavior
-		this.player.getComponent(EntityComponentTypes.Health).resetToDefaultValue();
+		this.player.getComponent("minecraft:health").resetToDefaultValue();
+  this.player.runCommand("effect @s clear");
 		this.player.applyDamage(1);
 		potionEffect(this.player, [
 			{ n:"absorption",t:5,amp:1,sp:true },
