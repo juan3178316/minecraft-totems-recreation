@@ -23,3 +23,4 @@ The code can change in the future.
 # Compatibility
 
 this code need to run in 26.10 of Minecraft bedrock.
+because require the `@minecraft/server` script API v2.6.0
