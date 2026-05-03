@@ -19,3 +19,7 @@ When you're using the script code, make sure to add this data:
 ```
 
 The code can change in the future.
+
+# Compatibility
+
+this code need to run in 26.10 of Minecraft bedrock.
