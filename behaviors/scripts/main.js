@@ -34,7 +34,8 @@ class PlayerTotemEffect {
 		this.#loadTotem();
 	}
 	#loadTotem() {
-		this.player.getComponent("minecraft:health").resetToDefaultValue();
+		let healthData = this.player.getComponent("minecraft:health");
+healthData.setCurrentValue(Math.min(6,healthData.currentValue + 2));
 		this.player.runCommand("effect @s clear");
 		this.player.applyDamage(1);
 		potionEffect(this.player, [{ n:"absorption",t:5,amp:1 }, { n:"regeneration",t:45,amp:1 }, { n:"fire_resistance",t:40 }]);
