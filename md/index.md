@@ -15,7 +15,22 @@ _here show how JSON and JavaScript code is used for recreate the Minecraft totem
 ## JSON language
 When you're coming to coding, your custom totem of undying item need this component data:
 + **"minecraft:allow_off_hand":** the component allow use the totem in offhand, because in Javascript code the offhand check first instead of mainhand (like the totem of undying)
-+ **"minecraft:cooldown":**
+
++ **"minecraft:cooldown":** This is important, when your custom totem of undying it's popped create a cooldown in JS for avoid spam with the totem amount, by default in the item components the duration is 0 for avoid the totem have the cooldown in each interaction:
+  ```json
+  "components": {
+    "minecraft:cooldown": {
+      "category": "ct_on_use",
+      "duration": 0
+    },
+  ```
+
+> [!tip]
+> please create and use a custom category for cooldown, for avoid use default cooldown category.
+> use the duration in 0 seconds, you can adjust the time in JS.
+
+> More about this one: [_Cooldown (item component) - bedrock Wiki_](https://wiki.bedrock.dev/items/item-components#cooldown)
+
 + **"minecraft:stacked_by_data":**
 + **"minecraft:tags":**
 
