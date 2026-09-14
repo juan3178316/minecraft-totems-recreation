@@ -1,7 +1,7 @@
 # Javascript code sample
 
 > [!warning]
-> This code it's updated in 08/10/26 - 14:27 (UTC -5)
+> This code it's updated in 09/14/26 - 12:46 (UTC -5)
 
 ### BP/scripts/main.js
 <details>
@@ -43,7 +43,8 @@ class PlayerTotemEffect {
 		this.#loadTotem();
 	}
 	#loadTotem() {
-		this.player.getComponent("minecraft:health").resetToDefaultValue();
+        let healthData = this.player.getComponent("minecraft:health");
+        healthData.setCurrentValue(Math.min(6,healthData.currentValue + 2));
 		this.player.runCommand("effect @s clear");
 		this.player.applyDamage(1);
 		potionEffect(this.player, [{ n:"absorption",t:5,amp:1 }, { n:"regeneration",t:45,amp:1 }, { n:"fire_resistance",t:40 }]);
