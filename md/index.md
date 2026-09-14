@@ -44,4 +44,6 @@ When you're coming to coding, your custom totem of undying item need this compon
 
 ### Custom item with their components
 
+see the code: [BH/items/custom_totem.json](https://github.com/juan3178316/minecraft-totems-recreation/blob/main/behaviors/items/custom_totem.json)
+
 ## JavaScript language
