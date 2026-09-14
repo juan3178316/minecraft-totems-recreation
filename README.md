@@ -5,6 +5,9 @@ This repo is for show how recreate the totem of undying in Minecraft bedrock wit
 > the next info is about use this repo in your add-ons, so you need to follow the next steps
 
 ## Repo content
+> [!warning]
+> **if you need to understand the code visit here:**
+
 Here explain how works the JavaScript code: [List content](./md/index.md)
 
 ## Third party and use in others add-ons
