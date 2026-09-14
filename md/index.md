@@ -22,7 +22,7 @@ When you're coming to coding, your custom totem of undying item need this compon
     "minecraft:cooldown": {
       "category": "ct_on_use",
       "duration": 0
-    },
+    }
   ```
 
 > [!tip]
@@ -31,8 +31,16 @@ When you're coming to coding, your custom totem of undying item need this compon
 
 > More about this one: [_Cooldown (item component) - bedrock Wiki_](https://wiki.bedrock.dev/items/item-components#cooldown)
 
-+ **"minecraft:stacked_by_data":**
-+ **"minecraft:tags":**
++ **"minecraft:stacked_by_data":** recommend enable this component for avoid bug with stack the totems.
++ **"minecraft:tags":** it's optional use this component, is useful with you're creating only 1 custom totem, but if you want to create many custom totems with own properties, you need work in JS.
+  ```json
+  "components": {
+    "minecraft:tags": {
+      "tags": [ "ct:custom_totem" ]
+    }
+  ```
+
+> More about this one: [_Tags (item component) - bedrock Wiki_](https://wiki.bedrock.dev/items/item-components#tags)
 
 ### Custom item with their components
 
