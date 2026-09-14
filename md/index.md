@@ -14,7 +14,10 @@ _here show how JSON and JavaScript code is used for recreate the Minecraft totem
 
 ## JSON language
 When you're coming to coding, your custom totem of undying item need this component data:
-
++ **"minecraft:allow_off_hand":** the component allow use the totem in offhand, because in Javascript code the offhand check first instead of mainhand (like the totem of undying)
++ **"minecraft:cooldown":**
++ **"minecraft:stacked_by_data":**
++ **"minecraft:tags":**
 
 ### Custom item with their components
 
