@@ -35,7 +35,7 @@ _(The code can change in the future.)_
 > Currently the Minecraft bedrock version required for use this code is in 26.30 with the Minecraft API: `@minecraft/server` 2.8.0 version. but this requirements can change in the future.
 
 **Minecraft min version:** `1.26.30`
-**"@minecraft/server" module version:** ` [2.8.0](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/changelog?view=minecraft-bedrock-stable#280) `
+**"@minecraft/server" module version:** [2.8.0](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/changelog?view=minecraft-bedrock-stable#280)
 
 ## How support
 If you want support this repository with fixing bugs, adding new features and more, just:
