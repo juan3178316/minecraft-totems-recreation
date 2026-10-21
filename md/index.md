@@ -12,6 +12,8 @@ _here show how JSON and JavaScript code is used for recreate the Minecraft totem
   - [BACK](index.md)
 </details>
 
+---
+
 ## JSON language
 When you're coming to coding, your custom totem of undying item need this component data:
 + **"minecraft:allow_off_hand":** the component allow use the totem in offhand, because in Javascript code the offhand check first instead of mainhand (like the totem of undying)
@@ -46,4 +48,21 @@ When you're coming to coding, your custom totem of undying item need this compon
 
 see the code: [BH/items/custom_totem.json](https://github.com/juan3178316/minecraft-totems-recreation/blob/main/behaviors/items/custom_totem.json)
 
+---
+
 ## JavaScript language
+this is the most complex part in the documentation, because i make the code in Javascript without use Typescript. :(
+
+> [!important]
+> The JS code have 2 functions and 2 class:
+>
+> **In functions:**
+> - getTypeHand: Return the `equippable` component of your chose hand of a player.
+>   
+> - potionEffect: Return potions effects to the player chosen.
+>
+> **In class:**
+> - EntityHurtBeforeEvent: Detect if a player receive damage and can cause dead for then execute the next class: `PlayerTotemEffect`.
+>   
+> - PlayerTotemEffect: This class manage the custom totem behavior when the player dead and use the correct totem.
+
