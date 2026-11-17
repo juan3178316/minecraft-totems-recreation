@@ -1,4 +1,4 @@
-import { system, world, EquipmentSlot, Player } from "@minecraft/server";
+import { system, world, EquipmentSlot } from "@minecraft/server";
 const getTypeHand = (player, hand) => player.getComponent("minecraft:equippable").getEquipmentSlot(EquipmentSlot[hand]);
 function potionEffect(p, obj, c = 0) {
     do {
@@ -7,9 +7,7 @@ function potionEffect(p, obj, c = 0) {
     } while (c < obj.length);
 }
 world.beforeEvents.entityHurt.subscribe((call) => {
-    let { damage, hurtEntity: player } = call;
-    if (!(player instanceof Player))
-        return; // ignore this part
+    let damage = call.damage, player = call.hurtEntity;
     if (damage >= player.getComponent("minecraft:health").currentValue) {
         let offHand = getTypeHand(player, "Offhand"), mainHand = getTypeHand(player, "Mainhand");
         if (offHand.hasItem() && offHand.hasTag("ct:custom_totem")) {
