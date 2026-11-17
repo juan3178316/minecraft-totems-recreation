@@ -1,4 +1,4 @@
-import { system, world, ContainerSlot, Entity, EquipmentSlot, Player } from "@minecraft/server";
+import { system, world, ContainerSlot, EquipmentSlot, Player } from "@minecraft/server";
 
 const getTypeHand = (player: Player,hand: string) => player.getComponent("minecraft:equippable").getEquipmentSlot(EquipmentSlot[hand]) as ContainerSlot;
 
